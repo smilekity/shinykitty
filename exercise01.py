@@ -60,16 +60,33 @@ data2 = [
 
 # 문제 1. 정렬 함수를 반복문, 조건문을 이용하여 구현하시오.
 #        함수 이름의 "alg" 부분은 정렬 알고리즘 이름으로 대체 (예: bubble_sort(arr): )
-def alg_sort(arr):
-
+def bubble_sort(arr):
+    
+    while True :
+        count=0
+        for i in range(len(arr)-1) :
+            if arr[i] > arr[i+1] :
+                temp=arr[i]
+                arr[i]=arr[i+1]
+                arr[i+1]=temp
+                count=+1
+            else :
+                continue
+        if count == 0 :
+            break
+           
     return arr
-
 
 
 
 # 문제 2. 리스트에서 중복을 제거하는 함수를 반복문, 조건문을 이용하여 구현하시오.
 def unique(arr):
     result = []
+    
+    for i in arr :
+        if i not in result :
+            result.append(i)
+                
 
     return result
 
@@ -80,7 +97,26 @@ def unique(arr):
 #  조건1: 문자열의 길이가 긴 것에서 짧은 순서로 정렬
 #  조건2: 문자열의 길이가 같은 경우, abc 순으로 정렬
 def custom_sort(arr):
-
+    while True :
+        count=0
+        for i in range(len(arr)-1) :
+            if len(arr[i])<len(arr[i+1]) :
+                 temp=arr[i]
+                 arr[i]=arr[i+1]
+                 arr[i+1]=temp
+                 count=+1
+            elif len(arr[i])==len(arr[i+1]):
+                if arr[i]>arr[i+1] :
+                    temp = arr[i]
+                    arr[i]=arr[i+1]
+                    arr[i+1]=temp
+                    count=+1
+                else :
+                    continue 
+            else : 
+                continue
+        if count==0 :
+            break     
     return arr
 
 
@@ -88,7 +124,7 @@ def custom_sort(arr):
 
 if __name__ == '__main__':
 
-    data1_sorted = alg_sort(data1)
+    data1_sorted = bubble_sort(data1)
 
     print(len(data1_sorted), data1_sorted)
 
